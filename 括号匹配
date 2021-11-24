@@ -1,0 +1,25 @@
+//括号匹配问题。{}[]()成对为匹配。扫描括号串，左括号入栈，右括号出栈比较，扫描结束要确保栈空。
+Status matchBracketSequence(char* exp, int n)
+{  // Add your code here
+    char t;
+    SqStack S;
+    InitStack_Sq(S, MAXSIZE ,INCREMENT );//初始化栈
+    for(int i=0;i<n;i++)
+      {
+        if(*(exp+i) == '{'||*(exp+i) =='['||*(exp+i) =='(')//左括号入栈
+            Push_Sq(S, *(exp+i));
+        else
+        {
+            Pop_Sq(S,t);//右括号出栈
+            switch(t)
+            {
+              case '{':if(*(exp+i) != '}') return 0;break;
+              case '[':if(*(exp+i) != ']') return 0;break;
+              case '(':if(*(exp+i) != ')') return 0;break;
+            }
+        }  
+      }
+    if(StackEmpty_Sq(S) == 0)//判断栈是否为空：是否全部比较完毕
+    return 0;
+    return 1;
+}
