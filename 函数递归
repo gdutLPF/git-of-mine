@@ -1,0 +1,13 @@
+//尤其要注意递归终止的条件判断
+int G(int m, int n) 
+{  // Add your code here
+    if(m<0||n<0)
+        return -1;
+    else
+    {
+        if(m == 0)//不要把“==”写成“=”！！
+            return 0;
+        else
+            return G(m-1,2*n)+n;
+    }
+}
